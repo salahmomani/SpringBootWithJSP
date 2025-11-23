@@ -26,6 +26,6 @@ public class CourseController {
     @GetMapping("/courses")
     public String findAll() {
         courseService.findAll();
-        return "courses file";
+        return "courses filen";
     }
 }
