@@ -17,7 +17,7 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-    @PostMapping("/addCourse ")
+    @PostMapping("/addCourse")
     public String add(Course course) {
         courseService.add(course);
         return "addCourse";
