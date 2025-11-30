@@ -7,7 +7,8 @@
 
 <h2>Add New Exam</h2>
 
-<form action="/addExam" method="post">
+<form action="/exam/add" method="post">
+
     <label>Course ID:</label>
     <input type="number" name="courseId" required><br><br>
 
@@ -21,7 +22,7 @@
 </form>
 
 <br>
-<a href="/getScores?id=1">View Scores Example</a>
+<a href="/exam/all">View All Exams</a>
 
 </body>
 </html>

@@ -16,11 +16,12 @@ public class RepoCourse {
 
     List<Course> courses = new ArrayList<>();
     private final JdbcTemplate jdbcTemplate;
-    String getAllQuery = "select * from students ";
-    String addQuery = "INSERT INTO students(name,email) VALUES(?,?)";
+    // Course SQL queries
+    String getAllQuery = "SELECT * FROM courses";
+    String addQuery = "INSERT INTO courses(code, title) VALUES(?,?)";
 
     @Autowired
-    public RepoCourse( JdbcTemplate jdbcTemplate) {
+    public RepoCourse(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

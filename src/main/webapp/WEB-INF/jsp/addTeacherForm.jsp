@@ -1,20 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Add Student</title>
+    <title>Add Teacher</title>
 </head>
 <body>
 
-<h2>Add Student</h2>
+<h2>Add Teacher</h2>
 
-<form action="/addStudent" method="post">
+<form action="/addTeacher" method="post">
     Name: <input type="text" name="name" required/><br><br>
     Email: <input type="email" name="email" required/><br><br>
-    <button type="submit">Add Student</button>
+    <button type="submit">Add Teacher</button>
 </form>
 
 <br>
-<a href="/getAllStudents">Back to Students</a>
+<a href="/getAllTeachers">Back to Teachers</a>
 
 </body>
 </html>

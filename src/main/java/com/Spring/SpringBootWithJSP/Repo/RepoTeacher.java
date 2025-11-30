@@ -15,10 +15,10 @@ public class RepoTeacher {
 
     List<Teacher> Teachers = new ArrayList<>();
     private final JdbcTemplate jdbcTemplate;
-    String getAllQuery = "select * from students ";
-    String addQuery = "INSERT INTO students(name,email) VALUES(?,?)";
-    String getByID = "select * from teacher where id=?";
-    String update = "UPDATE students SET name = ?, email = ? WHERE id = ?";
+    String getAllQuery = "SELECT * FROM teachers";
+    String addQuery = "INSERT INTO teachers(name,email) VALUES(?,?)";
+    String getByID = "SELECT * FROM teachers WHERE id=?";
+    String updateQuery = "UPDATE teachers SET name=?, email=? WHERE id=?";
 
     @Autowired
     public RepoTeacher(JdbcTemplate jdbcTemplate) {
@@ -56,7 +56,7 @@ public class RepoTeacher {
     }
 
     public void update(Teacher teacher) {
-        int rows = jdbcTemplate.update(update, teacher.getName(), teacher.getEmail(), teacher.getId());
+        int rows = jdbcTemplate.update(updateQuery, teacher.getName(), teacher.getEmail(), teacher.getId());
         System.out.println(rows + " Updated");
     }
 

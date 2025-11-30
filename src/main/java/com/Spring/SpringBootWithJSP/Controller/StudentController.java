@@ -5,6 +5,7 @@ import com.Spring.SpringBootWithJSP.Model.Student;
 import com.Spring.SpringBootWithJSP.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -17,10 +18,11 @@ public class StudentController {
     }
 
     @GetMapping("/getAllStudents")
-    public String findAll() {
-        studentService.findAll();
+    public String findAll(Model model) {
+        model.addAttribute("students", studentService.findAll());
         return "Students";
     }
+
     @GetMapping("/addStudentForm")
     public String showAddStudentForm() {
         return "addStudentForm";
@@ -28,18 +30,21 @@ public class StudentController {
     @PostMapping("/addStudent")
     public String add(Student student) {
         studentService.add(student);
-        return "addStudent";
+        return "redirect:/getAllStudents";
     }
-
     @GetMapping("/getByIDStudent")
-    public String findByID(@RequestParam Long id) {
-        studentService.findByID(id);
+    public String findByID(@RequestParam Long id, Model model) {
+        Student student = studentService.findByID(id);
+        if(student == null) {
+            model.addAttribute("errorMessage", "Student not found with ID: " + id);
+            return "getByIDStudent";
+        }
+        model.addAttribute("student", student);
         return "getByIDStudent";
     }
-
     @PutMapping("updateStudent")
     public String update(Student student) {
         studentService.update(student);
-        return "updateStudent";
+        return "redirect:/getAllStudents";
     }
 }

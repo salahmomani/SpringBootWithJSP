@@ -34,7 +34,7 @@
 </table>
 
 <br>
-<a href="addCourse.jsp">Add New Course</a>
+<a href="/addCourse">Add New Course</a>
 
 </body>
 </html>

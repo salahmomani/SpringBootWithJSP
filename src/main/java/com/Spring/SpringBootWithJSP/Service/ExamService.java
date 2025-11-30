@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class ExamService {
+
     private final RepoExam repoExam;
 
     @Autowired
@@ -20,7 +21,19 @@ public class ExamService {
         repoExam.addExam(exam);
     }
 
-    public List<Exam> listScoresForStudent(Long id) {
-        return repoExam.listScoresForStudent(id);
+    public List<Exam> getAll() {
+        return repoExam.getAllExams();
+    }
+
+    public Exam getById(Long id) {
+        return repoExam.getById(id);
+    }
+
+    public void update(Exam exam) {
+        repoExam.update(exam);
+    }
+
+    public void delete(Long id) {
+        repoExam.delete(id);
     }
 }
